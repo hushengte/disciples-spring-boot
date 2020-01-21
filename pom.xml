@@ -30,7 +30,7 @@
 		<spring-boot.version>${project.version}</spring-boot.version>
         <feed.version>1.0.10</feed.version>
         <iam.version>1.0.0</iam.version>
-        <lucene.version>4.10.4</lucene.version>
+        <lucene.version>7.1.0</lucene.version>
     </properties>
     
     <dependencyManagement>
