@@ -1,0 +1,6 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.disciples.springboot.autoconfigure.feed.RepositoryAutoConfiguration,\
+com.disciples.springboot.autoconfigure.feed.FullTextAutoConfiguration,\
+com.disciples.springboot.autoconfigure.iam.IamMvcAutoConfiguration,\
+com.disciples.springboot.autoconfigure.iam.IamOAuth2AutoConfiguration

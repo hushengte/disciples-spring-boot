@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.hushengte</groupId>
+        <artifactId>disciples-parent</artifactId>
+        <version>1.0.2</version>
+    </parent>
+    
+	<artifactId>disciples-spring-boot</artifactId>
+	<version>1.4.1.RELEASE</version>
+	<packaging>pom</packaging>
+
+	<name>disciples-spring-boot</name>
+	<description>Spring Boot Support for Disciples Project</description>
+	<url>https://github.com/hushengte/disciples-spring-boot</url>
+	
+	<scm>
+		<connection>scm:git:git://github.com/hushengte/disciples-spring-boot.git</connection>
+  		<developerConnection>scm:git:ssh://github.com:hushengte/disciples-spring-boot.git</developerConnection>
+  		<url>http://github.com/hushengte/disciples-spring-boot/tree/master</url>
+	</scm>
+	
+	<modules>
+	    <module>disciples-spring-boot-autoconfigure</module>
+	</modules>
+    
+    <properties>
+		<spring-boot.version>${project.version}</spring-boot.version>
+        <feed.version>1.0.10</feed.version>
+        <iam.version>1.0.0</iam.version>
+        <lucene.version>4.10.4</lucene.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-autoconfigure</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+            
+            <dependency>
+                <groupId>com.github.hushengte</groupId>
+                <artifactId>disciples-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>com.github.hushengte</groupId>
+                <artifactId>disciples-feed</artifactId>
+                <version>${feed.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.hushengte</groupId>
+                <artifactId>disciples-iam-core</artifactId>
+                <version>${iam.version}</version>
+            </dependency>
+			<dependency>
+                <groupId>com.github.hushengte</groupId>
+                <artifactId>disciples-iam-oauth2</artifactId>
+                <version>${iam.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
