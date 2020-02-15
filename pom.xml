@@ -30,7 +30,6 @@
 		<spring-boot.version>${project.version}</spring-boot.version>
         <feed.version>1.1.0</feed.version>
         <iam.version>1.0.0</iam.version>
-        <lucene.version>4.10.4</lucene.version>
     </properties>
     
     <dependencyManagement>
@@ -61,12 +60,6 @@
                 <groupId>com.github.hushengte</groupId>
                 <artifactId>disciples-iam-oauth2</artifactId>
                 <version>${iam.version}</version>
-            </dependency>
-            
-            <dependency>
-                <groupId>org.apache.lucene</groupId>
-                <artifactId>lucene-core</artifactId>
-                <version>${lucene.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

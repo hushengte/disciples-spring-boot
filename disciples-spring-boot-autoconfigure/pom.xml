@@ -13,6 +13,10 @@
 
 	<name>disciples-spring-boot-autoconfigure</name>
 	<description>Spring Boot Auto Configure Support</description>
+    
+    <properties>
+        <hibernate.version>4.3.9.Final</hibernate.version>
+    </properties>
 	
 	<dependencies>
 		<dependency>
@@ -37,8 +41,9 @@
         </dependency>
         
         <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
             <optional>true</optional>
         </dependency>
 	</dependencies>
