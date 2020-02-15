@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  context-path: /autoconfigure
+  
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.jdbc.batch_size: 50
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.search.lucene_version: LUCENE_CURRENT
+      hibernate.search.default.indexBase: /data/autoconfigure/index
+    open-in-view: false
+ 
+logging:
+  level:
+    com.disciples: INFO
