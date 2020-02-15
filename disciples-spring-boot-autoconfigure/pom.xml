@@ -16,6 +16,7 @@
     
     <properties>
         <hibernate.version>4.3.9.Final</hibernate.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
         
         <h2.version>1.4.192</h2.version>
         <hikaricp.version>2.4.7</hikaricp.version>
@@ -48,11 +49,16 @@
             <artifactId>disciples-iam-oauth2</artifactId>
             <optional>true</optional>
         </dependency>
-        
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
             <optional>true</optional>
         </dependency>
         

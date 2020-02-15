@@ -9,7 +9,7 @@
     </parent>
     
 	<artifactId>disciples-spring-boot</artifactId>
-	<version>1.4.1.RELEASE</version>
+	<version>1.5.22.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>disciples-spring-boot</name>
@@ -28,8 +28,8 @@
     
     <properties>
 		<spring-boot.version>${project.version}</spring-boot.version>
-        <feed.version>1.1.0</feed.version>
-        <iam.version>1.0.0</iam.version>
+        <feed.version>1.1.1</feed.version>
+        <iam.version>1.0.1</iam.version>
     </properties>
     
     <dependencyManagement>
