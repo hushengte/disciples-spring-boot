@@ -2,6 +2,7 @@ package com.disciples.springboot.autoconfigure.feed;
 
 import java.util.Collections;
 
+import org.hibernate.proxy.HibernateProxy;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -20,7 +21,7 @@ import com.disciples.feed.web.FacadeResponseBodyAdvice;
 import com.disciples.feed.web.RepositoryRestController;
 
 @Configuration
-@ConditionalOnClass({Repository.class})
+@ConditionalOnClass({RepositoryConfiguration.class, Repository.class})
 @Import({RepositoryConfiguration.class})
 public class RepositoryAutoConfiguration {
 	
@@ -32,6 +33,7 @@ public class RepositoryAutoConfiguration {
 	}
 	
 	@Bean
+	@ConditionalOnClass({HibernateProxy.class})
 	@ConditionalOnMissingBean
 	public HibernateProxyModule hibernateProxyModule() {
 		return new HibernateProxyModule();

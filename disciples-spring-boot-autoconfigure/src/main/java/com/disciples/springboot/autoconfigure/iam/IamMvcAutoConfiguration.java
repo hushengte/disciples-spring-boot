@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
@@ -15,12 +16,15 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.disciples.iam.config.IamWebSecurityConfigurerAdapter;
 import com.disciples.iam.config.ServiceConfiguration;
+import com.disciples.iam.service.UserManager;
 import com.disciples.iam.web.UserManageController;
 
 @Configuration
+@ConditionalOnClass({UserManager.class, WebMvcConfigurerAdapter.class})
 @ConditionalOnWebApplication
 @AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
 @Import(ServiceConfiguration.class)
@@ -36,6 +40,7 @@ public class IamMvcAutoConfiguration {
     @PostConstruct
     public void init() {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator(new ClassPathResource(SQL_PATH_SCHEMA));
+        populator.setSqlScriptEncoding("UTF-8");
         populator.execute(dataSource);
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         Long userCount = jdbcTemplate.queryForObject("select count(id) from iam_user", Long.class);
@@ -48,7 +53,12 @@ public class IamMvcAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean({IamWebSecurityConfigurerAdapter.class})
 	public IamWebSecurityConfigurerAdapter iamWebSecurityConfigurerAdapter() {
-		return new IamWebSecurityConfigurerAdapter();
+		return new IamWebSecurityConfigurerAdapter() {
+            @Override
+            public int getOrder() {
+                return super.getOrder() - 1;
+            }
+		};
 	}
 	
 }

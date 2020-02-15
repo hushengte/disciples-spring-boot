@@ -32,7 +32,9 @@ public class IamOAuth2AutoConfiguration {
 	
 	@PostConstruct
 	public void init() {
-		new ResourceDatabasePopulator(new ClassPathResource(SQL_PATH_OAUTH2)).execute(dataSource);
+	    ResourceDatabasePopulator populator = new ResourceDatabasePopulator(new ClassPathResource(SQL_PATH_OAUTH2));
+	    populator.setSqlScriptEncoding("UTF-8");
+	    populator.execute(dataSource);
 	}
 	
 }
