@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    hikari:
+      minIdle: 2
+      maxPoolSize: 7

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.disciples.iam.config.IamWebSecurityConfigurerAdapter;
 import com.disciples.iam.config.ServiceConfiguration;
@@ -24,7 +24,7 @@ import com.disciples.iam.service.UserManager;
 import com.disciples.iam.web.UserManageController;
 
 @Configuration
-@ConditionalOnClass({UserManager.class, WebMvcConfigurerAdapter.class})
+@ConditionalOnClass({UserManager.class, WebMvcConfigurer.class})
 @ConditionalOnWebApplication
 @AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
 @Import(ServiceConfiguration.class)

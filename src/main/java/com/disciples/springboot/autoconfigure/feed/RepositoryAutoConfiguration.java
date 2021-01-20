@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.boot.autoconfigure.web.WebMvcRegistrationsAdapter;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -42,7 +42,7 @@ public class RepositoryAutoConfiguration {
 	@Configuration
 	@ConditionalOnWebApplication
 	@ConditionalOnProperty(prefix = "feed.response", name = "enabled", matchIfMissing = true)
-	public static class MvcRegistrations extends WebMvcRegistrationsAdapter {
+	public static class MvcRegistrations implements WebMvcRegistrations {
 		
 		@Override
 		public RequestMappingHandlerAdapter getRequestMappingHandlerAdapter() {
