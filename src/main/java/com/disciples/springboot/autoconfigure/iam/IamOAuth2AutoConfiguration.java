@@ -18,7 +18,7 @@ import com.disciples.iam.oauth2.config.AuthorizationServerConfiguration;
 import com.disciples.iam.oauth2.config.OAuth2AuthorizationSecurityConfiguration;
 import com.disciples.iam.oauth2.config.ResourceServerConfiguration;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({OAuth2AccessToken.class, WebMvcConfigurer.class})
 @AutoConfigureBefore(WebMvcAutoConfiguration.class)
 @Import({AuthorizationServerConfiguration.class, ResourceServerConfiguration.class, 

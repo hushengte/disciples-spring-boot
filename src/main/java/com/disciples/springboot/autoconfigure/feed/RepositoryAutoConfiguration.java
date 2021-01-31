@@ -20,7 +20,7 @@ import com.disciples.feed.json.HibernateProxyModule;
 import com.disciples.feed.web.FacadeResponseBodyAdvice;
 import com.disciples.feed.web.RepositoryRestController;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({RepositoryConfiguration.class, Repository.class})
 @Import({RepositoryConfiguration.class})
 public class RepositoryAutoConfiguration {
@@ -39,7 +39,7 @@ public class RepositoryAutoConfiguration {
 		return new HibernateProxyModule();
 	}
 	
-	@Configuration
+	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnWebApplication
 	@ConditionalOnProperty(prefix = "feed.response", name = "enabled", matchIfMissing = true)
 	public static class MvcRegistrations implements WebMvcRegistrations {

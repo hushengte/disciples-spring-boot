@@ -23,7 +23,7 @@ import com.disciples.iam.config.ServiceConfiguration;
 import com.disciples.iam.service.UserManager;
 import com.disciples.iam.web.UserManageController;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({UserManager.class, WebMvcConfigurer.class})
 @ConditionalOnWebApplication
 @AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
