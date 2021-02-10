@@ -2,7 +2,6 @@ package com.disciples.springboot.autoconfigure.feed;
 
 import java.util.Collections;
 
-import org.hibernate.proxy.HibernateProxy;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -33,7 +32,7 @@ public class RepositoryAutoConfiguration {
 	}
 	
 	@Bean
-	@ConditionalOnClass({HibernateProxy.class})
+	@ConditionalOnClass(name = {"org.hibernate.proxy.HibernateProxy"})
 	@ConditionalOnMissingBean
 	public HibernateProxyModule hibernateProxyModule() {
 		return new HibernateProxyModule();
