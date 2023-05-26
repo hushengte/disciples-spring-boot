@@ -23,7 +23,7 @@
 	</scm>
 	
 	<properties>
-        <spring-boot.version>2.6.3</spring-boot.version>
+        <spring-boot.version>2.6.15</spring-boot.version>
         <servlet-api.version>4.0.4</servlet-api.version>
         <hibernate.version>5.4.32.Final</hibernate.version>
         <feed.version>2.0.3</feed.version>
